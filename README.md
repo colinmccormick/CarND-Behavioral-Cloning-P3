@@ -10,10 +10,7 @@ This project is part of the [Udacity Self-Driving Car Nanodegree Program](https:
 
 ## 0. File description
 
-The entire pipeline is in train_clone_drive.ipynb.
-The recorded training data is in data/.
-The trained model is model.h5.
-The video of the model driving is test_drive_video.mp4.
+The data pipeline is in train_clone_drive.ipynb, and the trained model is model.h5.
 
 ## 1. Driving the simulator
 
@@ -29,13 +26,13 @@ The training generator works by randomly sampling from the frames in the log, un
 
 After initially experimenting with LeNet, I decided to use the [Nvidia network](https://arxiv.org/pdf/1704.07911.pdf), with minor modifications. This network makes sense for this application, both because it's based on convolutions, and because it was optimized empirically by the Nvidia team. In my implementation, the network begins by cropping the image down to 66x200 pixels (from 160x320) to match the image size used by Nvidia. It then normalizes images using a simple divide-and-subtract method. The cropped image (before normalization) looks like this:
 
-![Cropped image](./examples/cropped_image.png)
+![Cropped image](./cropped_image.png)
 
 This pre-processing is followed by five convolution layers with relu activation, alternating with dropout layers (probability = 0.25). The first three convolution layers are 5x5 with 24, 36, and 48 filters respectively; the final two are 3x3 with 64 filters each. Following this there are four fully connected layers of size 100, 50, 10, and 1, the final one being the prediction of the steering angle.
 
 For training, I used MSE error and the Adam optimizer, and I used the validation data (via the generator) to test for over-fitting. I did the training on a GPU, which significantly accelerated things. Because of using Adam, I didn't have to choose the learning rate. I found it was very easy to overfit the initial version of the model, which didn't include the dropout layers. After some tinkering, I added five of them, with a relatively low probability, to avoid overfitting. I trained using early stopping, and got good results for about 64 epochs. The training and validation loss plotted against epoch look like this:
 
-![Training history](./examples/training_history.png)
+![Training history](./training_history.png)
 
 ## 4. Testing the model
 
