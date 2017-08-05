@@ -17,7 +17,9 @@ The video of the trained model driving on Track 1 is video.mp4.
 
 ## 1. Driving the simulator
 
-I began the project by practicing driving in the simulator provided by Udacity. It was harder than I expected to drive well. It got a little easier after I followed advice from the Slack channel to use an analogue input device (a mouse), and I eventually felt comfortable enough to record data. I ultimately drove six recorded laps, four in one direction and two in the other direction around the track. These weren't perfect - in several cases I veered slightly over the lane edge lines - but they seem to work. I used the lowest-resolution version (aka Fastest graphics).
+I began the project by practicing driving in the simulator provided by Udacity. It was harder than I expected to drive well. It got a little easier after I followed advice from the Slack channel to use an analogue input device (a mouse), and I eventually felt comfortable enough to record data. I ultimately drove six recorded laps, four in one direction and two in the other direction around the track. These weren't perfect - in several cases I veered slightly over the lane edge lines - but they seem to work. I used the lowest-resolution version (aka Fastest graphics). Here's the simulator in action:
+
+![Driving simulator](./udacity_simulator.png)
 
 ## 2. Loading training data
 
